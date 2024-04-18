@@ -1,0 +1,98 @@
+// Exercício 1- Faça um programa que imprima os números de 1 até 10 (ordem crescente).
+
+
+#include <stdio.h>
+
+int main() {
+    int num = 1; // Inicializa o contador com 1
+
+    // Enquanto o número for menor ou igual a 10, imprime e incrementa o contador
+    while (num <= 10) {
+        printf("%d\n", num);
+        num++; // Incrementa o contador
+    }
+
+    return 0;
+}
+
+
+// Exercício 2- Faça um programa que imprima os números de 10 até 1 (ordem decrescente).
+
+
+#include <stdio.h>
+
+int main() {
+    int num = 10; // Inicializa o contador com 10
+
+    // Enquanto o número for maior ou igual a 1, imprime e decrementa o contador
+    while (num >= 1) {
+        printf("%d\n", num);
+        num--; // Decrementa o contador
+    }
+
+    return 0;
+}
+
+
+// Exercício 3- Faça um programa que receba a idade de 5 pessoas e imprima quantas pessoas
+são maiores que 18 anos
+
+
+#include <stdio.h>
+
+int main() {
+    int idade;
+    int contador = 0; // Inicializa o contador de pessoas maiores que 18 anos
+
+    printf("Digite a idade de 5 pessoas:\n");
+
+    // Loop para receber a idade de 5 pessoas
+    int i = 0;
+    while (i < 7) {
+        printf("Pessoa %d: ", i + 1);
+        scanf("%d", &idade);
+
+        if (idade > 18) {
+            contador++; // Incrementa o contador se a idade for maior que 18
+        }
+
+        i++; // Incrementa o índice para a próxima pessoa
+    }
+
+    printf("Quantidade de pessoas maiores que 18 anos: %d\n", contador);
+
+    return 0;
+}
+
+// Exercício 4 - Refaça o exercício da tabuada das aulas anteriores, mas agora utilizando a
+estrutura while. O programa deve receber um número entre 1 e 10. Caso o número não seja
+válido deverá imprimir a mensagem “Número inválido”. O programa deve encerrar apenas
+quando o usuário digitar um valor válido, ou seja, caso o número digitado seja inválido
+devemos permitir que o usuário tente novamente. Em seguida imprimir a tabuada desse
+número;
+
+#include <stdio.h>
+
+int main() {
+    int numero;
+
+    // Solicita um número entre 1 e 10 ao usuário e continua solicitando até que seja digitado um valor válido
+    
+    printf("Digite um numero entre 1 e 10: ");
+    scanf("%d", &numero);
+    
+    while (numero < 1 || numero > 10) {
+        printf("Numero invalido. Digite um numero entre 1 e 10: ");
+        scanf("%d", &numero);
+    }
+
+    // Imprime a tabuada do número fornecido pelo usuário
+    
+    int i = 1;
+    while (i <= 10) {
+        printf("%d X %d = %d\n", numero, i, numero * i);
+        i++;
+    }
+
+    return 0;
+}
