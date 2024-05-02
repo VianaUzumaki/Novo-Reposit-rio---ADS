@@ -1,0 +1,35 @@
+// Exercício 1- Faça um programa que imprima os números de 1 até 10 (ordem crescente). (for)
+
+#include <stdio.h>
+
+int main() {
+    int num; // definindo variável
+
+    // No for eu declaro todas as regras que quero, 1ª regra: variável num começa a contar com 1;  
+    // 2ª regra: variável num tem que terminar menor ou igual a 10;
+    // 3ª regra: o número inicialmente atribuído a variável num vai incrementar (adicionar 1).
+    
+    for (num = 1; num <= 10; num++) {
+        printf("%d\n", num);
+    }
+
+    return 0;
+}
+
+// Exercício 2- Faça um programa que imprima os números de 10 até 1 (ordem decrescente). (for)
+
+#include <stdio.h>
+
+int main() {
+    int num; // definindo variável
+
+    // No for eu declaro todas as regras que quero, 1ª regra: variável num começa a contar com 1;  
+    // 2ª regra: variável num tem que terminar menor ou igual a 10;
+    // 3ª regra: o número inicialmente atribuído a variável num vai incrementar (adicionar 1).
+    
+    for (num = 10; num >= 1; num--) {
+        printf("%d\n", num);
+    }
+
+    return 0;
+}
