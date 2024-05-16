@@ -33,3 +33,279 @@ int main() {
 
     return 0;
 }
+
+
+// Exercício 3- Faça um programa que receba a idade de 5 pessoas e imprima quantas pessoas são maiores que 18 anos
+
+#include <stdio.h>
+
+int main() {
+    int idade;
+    int maioresDe18 = 0; // contador para pessoas maiores de 18 anos
+
+    for (int i = 1; i <= 5; ++i) {
+        printf("Digite a idade da pessoa %d: ", i);
+        scanf("%d", &idade);
+
+        if (idade > 18) {
+            maioresDe18++;
+        }
+    }
+
+    printf("Quantidade de pessoas maiores de 18 anos: %d\n", maioresDe18);
+
+    return 0;
+}
+
+// Exercício 4 - Refaça o exercício da tabuada das aulas anteriores, mas agora utilizando a
+estrutura for. O programa deve receber um número entre 1 e 10. Caso o número não seja
+válido deverá imprimir a mensagem “Número inválido”. O programa deve encerrar apenas
+quando o usuário digitar um valor válido, ou seja, caso o número digitado seja inválido
+devemos permitir que o usuário tente novamente. Em seguida imprimir a tabuada desse
+número;
+
+#include <stdio.h>
+
+int main() {
+    int numero;
+
+    do {
+        printf("Digite um número entre 1 e 10: ");
+        scanf("%d", &numero);
+
+        if (numero < 1 || numero > 10) {
+            printf("Número inválido. Tente novamente.\n");
+        }
+    } while (numero < 1 || numero > 10);
+
+    printf("Tabuada do %d:\n", numero);
+    for (int i = 1; i <= 10; ++i) {
+        printf("%d X %d = %d\n", numero, i, numero * i);
+    }
+
+    return 0;
+}
+
+// Exercício 5 - Criar um programa que imprima o número e o nome do mês.
+O programa deve informar caso o valor digitado não esteja entre 1 e 12, e deve permitir que
+o usuário digite novamente caso o valor seja inválido.
+
+#include <stdio.h>
+
+int main() {
+    int mes;
+
+    for (;;) {
+        printf("Digite um número entre 1 e 12: ");
+        scanf("%d", &mes);
+
+        if (mes >= 1 && mes <= 12) {
+            break; // sair do loop se o número for válido
+        } else {
+            printf("Valor não corresponde a nenhum mês! Tente novamente.\n");
+        }
+    }
+
+    switch (mes) {
+        case 1:
+            printf("1- janeiro\n");
+            break;
+        case 2:
+            printf("2- fevereiro\n");
+            break;
+        case 3:
+            printf("3- março\n");
+            break;
+        case 4:
+            printf("4- abril\n");
+            break;
+        case 5:
+            printf("5- maio\n");
+            break;
+        case 6:
+            printf("6- junho\n");
+            break;
+        case 7:
+            printf("7- julho\n");
+            break;
+        case 8:
+            printf("8- agosto\n");
+            break;
+        case 9:
+            printf("9- setembro\n");
+            break;
+        case 10:
+            printf("10- outubro\n");
+            break;
+        case 11:
+            printf("11- novembro\n");
+            break;
+        case 12:
+            printf("12- dezembro\n");
+            break;
+    }
+
+    return 0;
+}
+
+// Exercício 6 - Faça um programa que receba uma senha formada de quatro números inteiros,
+verifique se a senha está correta e, caso não esteja, solicite novamente a senha. Se a senha
+digitada estiver correta, deverá ser apresentada a mensagem “Senha Correta”, caso
+contrário, “Senha Incorreta”.
+
+#include <stdio.h>
+
+int main() {
+    int senhaCorreta = 1234; // Defina a senha correta aqui
+    int tentativas = 0;
+    int senhaDigitada;
+
+    for (;;) {
+        printf("Digite a senha (4 dígitos): ");
+        scanf("%d", &senhaDigitada);
+
+        if (senhaDigitada == senhaCorreta) {
+            printf("Senha Correta!\n");
+            break;
+        } else {
+            tentativas++;
+            printf("Senha Incorreta. Tentativa %d de 3.\n", tentativas);
+            if (tentativas >= 3) {
+                printf("Limite de tentativas alcançado. Acesso negado.\n");
+                break;
+            }
+        }
+    }
+
+    return 0;
+}
+
+// Exercício 7 - Calcular o fatorial de um número. O fatorial de um número é igual à
+multiplicação desse número pelos seus antecessores maiores que zero.
+Fatorial de 5: 5 * 4 * 3 * 2 * 1 = 120
+
+#include <stdio.h>
+
+int main() {
+    int n;
+    unsigned long long fatorial = 1; // Usamos unsigned long long para lidar com números grandes
+
+    printf("Digite um número inteiro positivo: ");
+    scanf("%d", &n);
+
+    if (n < 0) {
+        printf("O fatorial não está definido para números negativos.\n");
+    } else {
+        for (int i = 1; i <= n; ++i) {
+            fatorial *= i;
+        }
+        printf("Fatorial de %d: %llu\n", n, fatorial);
+    }
+
+    return 0;
+}
+
+// Exercício 8 -. Escreva um programa que pergunte ao usuário quantos alunos ele tem em sua
+academia. Em seguida, através de um laço while, o usuário digita o peso de todos os alunos,
+um por vez, e por fim, o programa deve mostrar a média de peso dos clientes.
+
+#include <stdio.h>
+
+int main() {
+    int totalAlunos;
+    float peso, somaPesos = 0.0;
+
+    printf("Quantos alunos você tem na academia? ");
+    scanf("%d", &totalAlunos);
+
+    for (int i = 1; i <= totalAlunos; ++i) {
+        printf("Digite o peso do aluno %d (em kg): ", i);
+        scanf("%f", &peso);
+        somaPesos += peso;
+    }
+
+    if (totalAlunos > 0) {
+        float mediaPeso = somaPesos / totalAlunos;
+        printf("Média de peso dos alunos: %.2f kg\n", mediaPeso);
+    } else {
+        printf("Nenhum aluno registrado.\n");
+    }
+
+    return 0;
+}
+
+// Exercício 9 - Escreva um programa que simule um caixa eletrônico.
+O programa deve apresentar um menu da seguinte forma:
+
+Menu de opções
+1- Consulta
+2- Saque
+3- Depósito
+4- Sair
+
+Observações:
+
+- O valor inicial do saldo é zero.
+- Quando o usuário digitar a opção 1, devemos imprimir o valor do saldo
+- Quando o usuário digitar a opção 2, devemos permitir que o usuário digite o valor
+de saque.
+- Quando o usuário digitar a opção 3, devemos permitir que o usuário digite o valor
+de depósito.
+- A cada operação de saque devemos subtrair o valor digitado pelo usuário do valor
+do saldo.
+- A cada operação de depósito devemos somar o valor digitado pelo usuário do valor
+do saldo.
+- O programa encerra quando o usuário digitar a opção 4 (Sair)
+
+#include <stdio.h>
+
+int main() {
+    float saldo = 0.0;
+    int opcao;
+    float valor;
+
+    printf("Bem-vindo ao Caixa Eletrônico!\n");
+
+    for (;;) {
+        printf("\nMenu de opções:\n");
+        printf("1- Consulta\n");
+        printf("2- Saque\n");
+        printf("3- Depósito\n");
+        printf("4- Sair\n");
+        printf("Escolha uma opção: ");
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+            case 1:
+                printf("Saldo atual: R$ %.2f\n", saldo);
+                break;
+            case 2:
+                printf("Digite o valor de saque: R$ ");
+                scanf("%f", &valor);
+                if (valor <= saldo) {
+                    saldo -= valor;
+                    printf("Saque realizado com sucesso!\n");
+                } else {
+                    printf("Saldo insuficiente para o saque.\n");
+                }
+                break;
+            case 3:
+                printf("Digite o valor de depósito: R$ ");
+                scanf("%f", &valor);
+                saldo += valor;
+                printf("Depósito realizado com sucesso!\n");
+                break;
+            case 4:
+                printf("Encerrando o programa. Obrigado!\n");
+                break;
+            default:
+                printf("Opção inválida. Tente novamente.\n");
+        }
+
+        if (opcao == 4) {
+            break; // sair do loop quando o usuário escolhe a opção 4 (Sair)
+        }
+    }
+
+    return 0;
+}
