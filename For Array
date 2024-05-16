@@ -1,0 +1,152 @@
+
+1- Faça um Programa que leia um vetor de 5 números e exiba na tela.
+
+
+#include <stdio.h>
+
+int main() {
+    int numeros[5]; // Vetor para armazenar os números
+
+    // Lê os números do usuário
+    for (int i = 0; i < 5; ++i) {
+        printf("Digite o número %d: ", i + 1);
+        scanf("%d", &numeros[i]);
+    }
+
+    // Exibe os números na tela
+    printf("Números digitados:\n");
+    for (int i = 0; i < 5; ++i) {
+        printf("%d\n", numeros[i]);
+    }
+
+    return 0;
+}
+
+// 2- Faça um Programa que leia um vetor de 5 números e exiba na ordem inversa.
+
+
+#include <stdio.h>
+
+int main() {
+    int i;
+    float vetor[5];
+
+    // Lê os valores do vetor
+    for (i = 0; i < 5; i++) {
+        printf("Digite o valor da posição %d: ", i);
+        scanf("%f", &vetor[i]);
+    }
+
+    // Exibe o vetor na ordem inversa
+    printf("\nVetor na ordem inversa:\n");
+    for (i = 4; i >= 0; i--) {
+        printf("%.2f ", vetor[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+// 3- Faça um Programa que leia 4 notas, mostre as notas e a média na tela
+
+#include <stdio.h>
+
+int main() {
+    float notas[4];
+    float soma = 0;
+    int i;
+
+    // Lê as notas
+    for (i = 0; i < 4; i++) {
+        printf("Digite a nota %d: ", i + 1);
+        scanf("%f", &notas[i]);
+        soma += notas[i];
+    }
+
+    // Exibe as notas
+    printf("\nNotas digitadas:\n");
+    for (i = 0; i < 4; i++) {
+        printf("Nota %d: %.2f\n", i + 1, notas[i]);
+    }
+
+// 4- Faça um Programa que leia um vetor de 10 caracteres, e informe quantas consoantes foram lidas. Imprima as consoantes.
+
+#include <stdio.h>
+#include <ctype.h> // Biblioteca para verificar se um caractere é uma consoante
+
+int main() {
+    char vetor[10];
+    int i, consoantes = 0;
+
+    // Lê os caracteres
+    
+    for (i = 0; i < 10; i++) {
+        printf("Digite o caractere %d: ", i + 1);
+        scanf(" %c", &vetor[i]); // Note o espaço antes do %c para evitar problemas com o buffer
+        vetor[i] = tolower(vetor[i]); // Converte para minúscula para facilitar a verificação
+    }
+
+    // Verifica e conta as consoantes
+    
+    for (i = 0; i < 10; i++) {
+        if (isalpha(vetor[i]) && !strchr("aeiou", vetor[i])) {
+            consoantes++;
+            printf("Consoante encontrada: %c\n", vetor[i]);
+        }
+    }
+
+    printf("\nTotal de consoantes: %d\n", consoantes);
+
+    return 0;
+}
+
+    // Calcula a média
+    float media = soma / 4;
+    printf("\nMédia das notas: %.2f\n", media);
+
+    return 0;
+}
+
+
+// 5- Faça um Programa que leia 5 números inteiros e armazene-os num vetor. Armazene os números pares no vetor “par”e os números ímpares no vetor “ímpar”. Imprima os três vetores.
+
+#include <stdio.h>
+
+int main() {
+    int numeros[5];
+    int par[5], impar[5];
+    int i, contPar = 0, contImpar = 0;
+
+    // Lê os números
+    for (i = 0; i < 5; i++) {
+        printf("Digite um número inteiro: ");
+        scanf("%d", &numeros[i]);
+
+        // Verifica se é par ou ímpar
+        if (numeros[i] % 2 == 0) {
+            par[contPar] = numeros[i];
+            contPar++;
+        } else {
+            impar[contImpar] = numeros[i];
+            contImpar++;
+        }
+    }
+
+    // Exibe os três vetores
+    printf("\nVetor original:\n");
+    for (i = 0; i < 5; i++) {
+        printf("%d ", numeros[i]);
+    }
+
+    printf("\n\nVetor de números pares:\n");
+    for (i = 0; i < contPar; i++) {
+        printf("%d ", par[i]);
+    }
+
+    printf("\n\nVetor de números ímpares:\n");
+    for (i = 0; i < contImpar; i++) {
+        printf("%d ", impar[i]);
+    }
+
+    return 0;
+}
